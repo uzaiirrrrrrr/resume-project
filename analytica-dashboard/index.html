@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytica - Marketing Performance Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo"><i class="fas fa-chart-line"></i> Analytica</div>
+        <nav id="sidebar-nav">
+            <div class="nav-item active" data-view="dashboard"><i class="fas fa-home"></i> Dashboard</div>
+            <div class="nav-item" data-view="seo"><i class="fas fa-search"></i> SEO Traffic</div>
+            <div class="nav-item" data-view="audience"><i class="fas fa-users"></i> Audience</div>
+            <div class="nav-item" data-view="settings"><i class="fas fa-cog"></i> Settings</div>
+        </nav>
+        <div class="sidebar-footer">
+            <p>Admin v1.2</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1 id="view-title">Marketing Insights Hub</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary"><i class="fas fa-download"></i> Export data</button>
+                <div class="user-avatar">MU</div>
+            </div>
+        </header>
+
+        <!-- Dashboard View -->
+        <div id="view-dashboard" class="view">
+            <div class="stats-grid">
+                <div class="stat-card" onclick="updateChart('pageviews')">
+                    <span class="label">Total Page Views <i class="fas fa-info-circle"></i></span>
+                    <span class="value">45,283</span>
+                    <span class="trend up"><i class="fas fa-arrow-up"></i> 12.5%</span>
+                </div>
+                <div class="stat-card" onclick="updateChart('bounce')">
+                    <span class="label">Bounce Rate <i class="fas fa-info-circle"></i></span>
+                    <span class="value">32.4%</span>
+                    <span class="trend down"><i class="fas fa-arrow-down"></i> 2.1%</span>
+                </div>
+                <div class="stat-card" onclick="updateChart('conversion')">
+                    <span class="label">Conversion Rate <i class="fas fa-info-circle"></i></span>
+                    <span class="value">4.8%</span>
+                    <span class="trend up"><i class="fas fa-arrow-up"></i> 0.5%</span>
+                </div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-header">
+                    <h3>Traffic Overview</h3>
+                    <div class="chart-tabs">
+                        <button class="tab-btn active" onclick="setRange('7d')">7 Days</button>
+                        <button class="tab-btn" onclick="setRange('30d')">30 Days</button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="trafficChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO View (Initially Hidden) -->
+        <div id="view-seo" class="view hidden">
+            <div class="data-table-container">
+                <h3>Top Keywords</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Clicks</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Resume Builder</td>
+                            <td>1,240</td>
+                            <td>#2</td>
+                        </tr>
+                        <tr>
+                            <td>Web Portfolios</td>
+                            <td>890</td>
+                            <td>#5</td>
+                        </tr>
+                        <tr>
+                            <td>Cyber Security</td>
+                            <td>450</td>
+                            <td>#12</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Audience View (Initially Hidden) -->
+        <div id="view-audience" class="view hidden">
+            <div class="empty-state">
+                <i class="fas fa-user-friends"></i>
+                <h3>Audience Data Loading...</h3>
+                <p>Connecting to CRM services.</p>
+            </div>
+        </div>
+
+        <!-- Settings View (Initially Hidden) -->
+        <div id="view-settings" class="view hidden">
+            <div class="settings-form">
+                <div class="form-group">
+                    <label>Profile Integration</label>
+                    <select>
+                        <option>Google Analytics</option>
+                        <option>Vercel</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

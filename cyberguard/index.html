@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard - URL Security Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"><i class="fas fa-shield-alt"></i> CyberGuard</div>
+            <p>Real-time URL Phishing & Security Analysis</p>
+        </header>
+
+        <main>
+            <div class="scanner-box">
+                <input type="text" id="urlInput" placeholder="Enter URL to scan (e.g., https://example.com)">
+                <button id="scanBtn">Scan URL</button>
+            </div>
+
+            <div id="results" class="hidden">
+                <div class="status-card">
+                    <div id="statusIcon"></div>
+                    <div class="status-info">
+                        <h2 id="statusTitle">Analyzing...</h2>
+                        <p id="statusDesc"></p>
+                    </div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="label">SSL Validity</span>
+                        <span id="sslStatus" class="value">Checking...</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Safety Score</span>
+                        <span id="safetyScore" class="value">0/100</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Threat Detection</span>
+                        <span id="threatType" class="value">None</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
