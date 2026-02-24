@@ -1,0 +1,267 @@
+:root {
+    --europass-blue: #004494;
+    --europass-light-blue: #eef4fb;
+    --text-dark: #333333;
+    --text-grey: #666666;
+    --border-color: #dcdcdc;
+    --bg-white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+}
+
+.resume-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--bg-white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+}
+
+/* Header Styling */
+.header {
+    background-color: var(--europass-blue);
+    color: white;
+    padding: 40px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.name-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.info-item i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 40px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid var(--europass-blue);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    color: var(--europass-blue);
+}
+
+.section-title i {
+    font-size: 1.2rem;
+}
+
+.section-title h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.section-content {
+    padding-left: 37px;
+}
+
+.section-content p {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+/* Specific Item Styling */
+.experience-item,
+.education-item,
+.project-item {
+    margin-bottom: 20px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item-header h3 {
+    font-size: 1.1rem;
+    color: var(--europass-blue);
+    margin-bottom: 5px;
+    flex: 1;
+}
+
+.project-link {
+    color: var(--europass-blue);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--europass-light-blue);
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.project-link:hover {
+    background: var(--europass-blue);
+    color: white;
+}
+
+.project-links {
+    display: flex;
+    gap: 8px;
+}
+
+.project-link.source {
+    background: #f3f4f6;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+}
+
+.project-link.source:hover {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.project-desc {
+    font-size: 0.95rem !important;
+    color: var(--text-grey) !important;
+    margin-top: 5px;
+}
+
+.item-header .location {
+    font-style: italic;
+    color: var(--text-grey);
+    font-size: 0.9rem;
+}
+
+.experience-list {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.experience-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.experience-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--europass-blue);
+}
+
+/* Grid for smaller sections */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.skills-list,
+.strengths-list,
+.languages-list {
+    list-style: none;
+}
+
+.skills-list li,
+.strengths-list li,
+.languages-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.cert-item h3 {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.cert-item p {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .section-content {
+        padding-left: 0;
+    }
+}
+
+/* Print Styles for PDF Export */
+@media print {
+    body {
+        padding: 0;
+        background-color: white;
+    }
+
+    .resume-container {
+        box-shadow: none;
+        width: 100%;
+        max-width: none;
+    }
+
+    .header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .section-title {
+        border-bottom-color: var(--europass-blue) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    @page {
+        margin: 0;
+    }
+}
